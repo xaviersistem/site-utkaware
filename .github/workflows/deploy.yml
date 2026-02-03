@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: 🎉 Deploying to utkaware.com
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
@@ -17,5 +17,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        port: 22  # Al usar el puerto 22, la acción entiende que debe usar SFTP automáticamente
-        server-dir: /
+        port: 22
+        server-dir: /  # Corresponde al Path '/' de tu archivo de configuración
