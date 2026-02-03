@@ -1,4 +1,4 @@
-name: Deploy to IONOS
+name: Deploy to IONOS via SFTP
 on:
   push:
     branches:
@@ -11,10 +11,12 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
-    - name: 📂 Sync files
+    - name: 📂 Sync files via SFTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /  # Esto subirá los archivos a la raíz que ves en tu Webspace Explorer
+        port: 22        # <--- Agrega esta línea para usar SFTP
+        protocol: sftp  # <--- Agrega esta línea para definir el protocolo
+        server-dir: /
