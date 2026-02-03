@@ -17,6 +17,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        protocol: SFTP + SSH
+        protocol: ftps
         port: 22
         server-dir: /  # Corresponde al Path '/' de tu archivo de configuración
