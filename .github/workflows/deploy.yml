@@ -17,6 +17,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        port: 22        # <--- Agrega esta línea para usar SFTP
-        protocol: sftp  # <--- Agrega esta línea para definir el protocolo
+        port: 22  # Al usar el puerto 22, la acción entiende que debe usar SFTP automáticamente
         server-dir: /
