@@ -11,15 +11,13 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
-
       - name: 🚀 SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           username: ${{ secrets.FTP_USERNAME }}
           server: ${{ secrets.FTP_SERVER }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
-          # Si prefieres seguir usando contraseña temporalmente, usa la línea de abajo y borra la de ssh_private_key
-          # password: ${{ secrets.FTP_PASSWORD }}
+          password: ${{ secrets.FTP_PASSWORD }} # Usa el secret de la contraseña
           port: 22
           local_path: './*'
           remote_path: '/'
+          sftp_only: true # Fuerza el uso de SFTP puro
