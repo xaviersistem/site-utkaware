@@ -1,3 +1,4 @@
+# Redirigir dominio raíz a www (que SÍ tiene SSL)
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^utkaware\.com [NC]
+RewriteRule ^(.*)$ https://www.utkaware.com/$1 [L,R=301]
